@@ -1,10 +1,22 @@
-import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, {useEffect} from 'react'
+import {View, Text, StyleSheet, Button} from 'react-native'
 
-function Detail({route}) {
+function Detail({route, navigation}) {
+    useEffect(() => {
+        navigation.setOptions({
+            title: `상세상세${route.params.id}`
+        })
+    })
+    
     return (
-        <View style=[styles.block]>
-            <Text>상세입니다.</Text>
+        <View style={styles.block}>
+            <Text style={styles.text}>id: {route.params.id}</Text>
+            <View style={styles.buttons}>
+                <Button title='다음' 
+                    onPress={() => navigation.push('Detail', {id: route.params.id + 1})}/>
+                <Button title='뒤로' onPress={() => navigation.pop()}/>
+                <Button title='Home' onPress={() => navigation.popToTop()}/>
+            </View>
         </View>
     )
 }
@@ -17,6 +29,9 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 48
+    },
+    buttons: {
+        flexDirection: 'row'
     }
 })
 
