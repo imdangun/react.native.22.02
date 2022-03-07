@@ -1,14 +1,14 @@
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import Root from './screen/Root'
-import LogContext from './context/LogContext'
+import {LogContextProvider}from './context/LogContext'
 
 function App() {
     return (
         <NavigationContainer>
-            <LogContext.Provider value='안녕'>
+            <LogContextProvider>
                 <Root/>
-            </LogContext.Provider>
+            </LogContextProvider>
         </NavigationContainer>
     )
 }

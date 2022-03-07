@@ -9,7 +9,7 @@ function Root() {
     return (
         <Stack.Navigator>
             <Stack.Screen name='main' component={Main} options={{headerShown: false}}/>
-            <Stack.Screen name='write' component={Write} />
+            <Stack.Screen name='write' component={Write} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }
